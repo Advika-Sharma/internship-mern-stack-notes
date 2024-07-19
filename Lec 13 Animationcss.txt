@@ -1,0 +1,376 @@
+//animation in css 
+
+code 1
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        .box{
+            height:200px;
+            width:200px;
+            border:2px solid black;
+            animation-name: mybox;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            position:absolute;
+            animation-delay: 2s;
+            animation-direction: alternate;
+        }
+        @keyframes mybox {
+
+            from{
+                width:0px;
+                height:0px;
+                background-color: red;
+                border-radius: 0px;
+                left:0px;
+                top:0px;
+            }
+            to{ 
+                width:120px;
+                height:60px;
+                background-color: blue;
+                border-radius: 50%;
+                left:200px;
+                top:150px;
+            }}
+        .box1{
+            height:200px;
+            width:200px;
+            border:2px solid black;
+            animation-name: box1;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            position: relative;
+            animation-delay: 2s;
+            animation-direction: alternate;
+        }
+        @keyframes box1{
+           from{ width:0px;
+                height:0px;
+                background-color: red;
+                border-radius: 0px;
+                left:400px;
+                top:0px;
+            }
+
+                to{
+                    width:120px;
+                height:60px;
+                background-color: blue;
+                border-radius: 50%;
+                left:200px;
+                top:150px;
+                }
+        }
+        .box2{
+            height:200px;
+            width:200px;
+            border:2px solid black;
+            animation-name: box2;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            position: absolute;
+            animation-delay: 2s;
+            animation-direction: alternate;
+        }
+        .box3{
+            height:200px;
+            width:200px;
+            border:2px solid black;
+            animation-name: box3;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            position: absolute;
+            animation-delay: 2s;
+            animation-direction: alternate;
+        }
+        @keyframes box2{
+            from{ width:0px;
+                 height:0px;
+                 background-color: red;
+                 border-radius: 0px;
+                 left:0px;
+                 top:300px;
+             }
+ 
+                 to{
+                     width:120px;
+                 height:60px;
+                 background-color: blue;
+                 border-radius: 50%;
+                 left:200px;
+                 top:150px;
+                 }
+         }
+         @keyframes box3{
+            from{ width:0px;
+                 height:0px;
+                 background-color: red;
+                 border-radius: 0px;
+                 left:400px;
+                 top:300px;
+             }
+ 
+                 to{
+                     width:120px;
+                 height:60px;
+                 background-color: blue;
+                 border-radius: 50%;
+                 left:200px;
+                 top:150px;
+                 }
+         }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+</body>
+</html>
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+//transitions in css 
+
+code 2 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height:100vh;
+        }
+        .box{
+            height:400px;
+            width:400px;
+            background-color: black;
+            cursor: pointer;
+           /* transition-property: background-color, height, width ;
+            transition-duration: 2s;*/
+            transition: all 2s;
+            
+            
+        }
+        .box:hover{
+            /*background-color: navy;
+            height:600px;
+            width:600px;
+            border-radius: 800px;*/
+            transform:rotate(360deg);
+            transform: scale(1.5);
+            transform: scale(0.5);
+            transform: skewX(45deg);
+            transform: skewy(-90deg);
+            transform: translateY(-400px);
+        }
+    </style>
+</head>
+<body>
+     <div class="box"></div>
+</body>
+</html>
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+animation from bottom transform functions In css 
+
+
+
+//code 3
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height:100vh;
+        }
+        .box{
+            width:350px;
+            height:400px;
+            /*border:1px solid black;*/
+            box-shadow: 0px 0px 10px rgb(184, 171, 171);
+            padding: 5px;
+            overflow: hidden;
+
+        }
+        img{
+            height:100%;
+            width:100%;
+        }
+        .content{
+            padding: 10px solid black;
+            font-family: sans-serif;
+            padding: 10px;
+            background-color: white;
+            text-align: justify;
+            transition: all 1s;
+        }
+        h1,h2,p{
+            margin: 5px 0px;
+        }
+        .box:hover .content{
+            transform: translateY(-200px);
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="Screenshot 2024-07-17 220033.png" alt="">
+        <div class="content">
+            <h1>title-car</h1>
+            <h2>price-900</h2>
+            <p>Description - Lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum asperiores quia obcaecati. Distinctio quis exercitationem neque, perspiciatis dolores eaque expedita quisquam debitis qui. Accusantium, quisquam deserunt fugiat ratione voluptatum eum provident eos voluptas laboriosam natus minima harum iusto obcaecati fuga possimus repudiandae vel. Ea autem natus alias ipsam, facilis vitae!ipsum dolor sit amet consectetur adipisicing elit. Veniam autem quis placeat corporis consectetur perferendis maxime, ducimus quo eaque nesciunt fugiat suscipit cupiditate, beatae reprehenderit! At corporis delectus incidunt voluptatem.</p>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+code 4 
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height:100vh;
+        }
+        .box{
+            width:400px;
+            /*border:1px solid black;*/
+            box-shadow: 0px 0px 10px rgb(184, 171, 171);
+            overflow: hidden;
+            margin: 5px;
+
+        }
+        img{
+            height:60%;
+            width:100%;
+            
+            transition: all 1s;
+        }
+        .content{
+            padding: 10px solid black;
+            font-family: sans-serif;
+            padding: 10px;
+            background-color: white;
+            text-align: justify;
+        }
+        h1,h2,p{
+            margin: 5px 0px;
+        }
+        .box:hover img{
+                transform: scale(1.5);
+        }
+        .image{
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="image">
+        <img src="Screenshot 2024-07-17 220033.png" alt="">
+        </div>
+        <div class="content">
+            <h1>title-car</h1>
+            <h2>price-900</h2>
+            <p>Description - Lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum asperiores quia obcaecati. Distinctio quis exercitationem neque, Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, id?reprehenderit! At corporis delectus incidunt voluptatem.</p>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="image">
+        <img src="Screenshot 2024-07-17 220033.png" alt="">
+        </div>
+        <div class="content">
+            <h1>title-car</h1>
+            <h2>price-900</h2>
+            <p>Description - Lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum asperiores quia obcaecati. Distinctio quis exercitationem neque, Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, id?reprehenderit! At corporis delectus incidunt voluptatem.</p>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="image">
+        <img src="Screenshot 2024-07-17 220033.png" alt="">
+        </div>
+        <div class="content">
+            <h1>title-car</h1>
+            <h2>price-900</h2>
+            <p>Description - Lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum asperiores quia obcaecati. Distinctio quis exercitationem neque, Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, id?reprehenderit! At corporis delectus incidunt voluptatem.</p>
+        </div>
+    </div>
+</body>
+</html>
