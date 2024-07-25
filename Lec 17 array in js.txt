@@ -1,0 +1,207 @@
+//array
+->-int , string ,boolean, float (can store non homogenous data)
+
+
+code -
+
+ let a=[10,20,30,"mohit",1.5]
+        console.log(a[2])
+        for (let i of a){
+            console.log(i)
+        }
+
+        for (let i in a){
+            console.log(a[i])
+        }
+
+        a.forEach((item,indexing)=>{
+            console.log(item,indexing)
+        })
+
+
+
+
+//array methods-
+1->push 
+2->pop
+3->shift
+4->unshift
+5->slice(starting and ending point)
+6->splice(indexing removing count , new element)
+7->map***
+8->filter
+9->reduce
+10->flat-concert 2d or 3d array into 1d array
+11->split-string to array
+12->join-array to string
+13->length
+
+code-
+
+ 	
+
+	// 1. push() - add element at the end of the array
+
+        a.push("ankit")
+        console.log(a)
+
+        // 2.pop() - delete element at the end of the array
+        a.pop()
+        console.log(a)
+
+        // 3. unshift - add element at the start of the array
+        a.unshift("hello")
+        console.log(a)
+
+        //4. shift - delete element at the start of the array
+        a.shift()
+        console.log(a)
+
+        //5. slice 
+       console.log(a.slice(0,-1))
+
+       //6. splice
+       a.splice(-5,4,false,"ayu")
+       console.log(a)
+
+       //7. map
+       let b = a.map((item)=> item+1)
+        console.log(b)
+
+        //8. filter - filter the data
+        let c = a.filter((item)=> item > 20)
+        console.log(c)
+
+        //9. reduce 
+        let d = a.reduce((x,y)=>x+y)
+        console.log(d)
+
+        //10. flat - convert 2d or 3d array into 1d array
+        let arr=[10,20,[1,2,[true,false],3,4,5],30,40,50]
+        console.log(arr.flat(2)) 
+
+        //11. split - convert string type into array and divide where particular symbol is present like(,-0)
+        let str = "10,20,30,40,50"
+        console.log(str.split(","))
+
+        //12. join - inverse of split
+        let arr1 = [10,20,30,40,50]
+        console.log(arr1.join(","))
+
+	//13.length
+       let len="advikasharma"
+       console.log(len.length)
+       console.log(len.toUpperCase())
+       console.log(len.toLowerCase())
+       console.log(len.repeat(2))
+       console.log(len.replace("a","s"))
+	console.log(len.replaceAll("sharma","parashar"))
+       console.log(len.charCodeAt("0"))
+       console.log(len.charCodeAt("6"))
+       console.log(len.includes("shar"))
+       console.log(len.includes("isk"))
+
+
+//objects in js 
+
+
+code -
+
+
+	let obj = {
+            rollno:1001,
+            name:"advika",
+            age:17,
+            city:"jaipur",
+
+        };
+        console.log(obj)
+        console.log(obj.name,obj.age)
+        //console.log(obj["name"])
+
+        for( let i in obj){
+            console.log(i,"=",obj[i])
+        }
+
+
+
+//array of object
+
+
+code -
+
+
+	let obj = [
+            {
+                rollno:1001,
+                name:"advika",
+                age:17,
+                city:"jaipur",
+    
+            },
+            {
+                rollno:1002,
+                name:"ankit",
+                age:17,
+                city:"jaipur",
+    
+            },
+            {
+                rollno:1003,
+                name:"adarsh",
+                age:17,
+                city:"jaipur",
+    
+            },
+            {
+                rollno:1004,
+                name:"aditya",
+                age:17,
+                city:"jaipur",
+    
+            },
+            {
+                rollno:1005,
+                name:"anuj",
+                age:17,
+                city:"jaipur",
+    
+            }
+        ]
+        console.log(obj)	
+
+
+
+	let x= arrobj.filter((item)=>item.age<18)
+            console.log(x)
+
+
+            let aobj = {
+                rollno:1001,
+                fname:"advika",
+                lname:"sharma",
+                age:17,
+                city:"jaipur",
+                skills:["c","c++","java","python"],
+                fullname:function(){
+                    return this.fname + " "+ this.lname
+                },
+                marks:{
+                    "p":85,
+                    "m":70,
+                    "c":40
+                }
+            };
+            console.log(aobj.fname)
+            console.log(aobj.lname)
+            console.log(aobj.fullname())
+
+            console.log(aobj.marks)
+            console.log(aobj.marks["c"])
+
+
+
+
+
+
+	
