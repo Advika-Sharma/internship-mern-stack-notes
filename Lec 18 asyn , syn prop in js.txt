@@ -1,0 +1,337 @@
+//asynchronous property in js ->
+->effective time utilization 
+->program effective 
+->os friendly
+->we use settimeout for making a program asynchronous
+
+code -
+
+
+	console.log("i am one")
+        console.log("i am two")
+        console.log("i am three")
+
+        setTimeout(()=>{
+
+        for ( let i =0; i<100; i++){
+            console.log(i)
+        }})
+
+        console.log("i am four")
+        console.log("i am five"),5000
+
+
+        //setTimeout(()=>{
+        //    console.log("hello")
+        //},3000)
+
+
+
+//call back function(for API fetching)--->call back hell---->promises-------->promise chain -------->aysnc await
+
+
+//call back function and call back hell 
+
+
+        function food(dish,order){
+               
+            setTimeout(()=>{
+                console.log(dish)
+                if(order){
+                    order()
+                }
+            },2000)
+        }
+
+        food("pizza",()=>{
+            food("burger",()=>{
+                food("ice-cream",()=>{
+                    food("cold-drink")
+                })
+            })
+        })
+
+
+//---------------->promise
+
+        let prom = new Promise ((resolve,reject)=>{
+            
+            if (false){
+                resolve("promise pura hua")
+            }
+            else{
+                reject("promise adhura reh gya")}
+            })
+
+         //console.log(prom)
+        prom.then((response)=>{
+
+            console.log(response)
+        }).catch((error)=>{
+
+            console.log(error)
+        });
+
+
+
+//------------->promise chain
+
+        function food(dish)
+        {
+            
+            return new Promise ((resolve,reject)=>{
+                setTimeout(()=>{
+                    console.log(dish)
+                    resolve(dish);
+                },3000)
+            });
+        }
+
+        food("pizza").then(()=>{
+            food("burger").then(()=>{
+                food("ice-cream").then(()=>{
+                    food("cold-drink")
+                })
+            })
+        })
+
+//------------->async await 
+
+        function food(dish)
+        {
+            
+            return new Promise ((resolve,reject)=>{
+                setTimeout(()=>{
+                    //console.log(dish)
+                    resolve(dish);
+                },3000)
+            });
+        }
+
+       async function output(){
+            let pizza = await food("pizza");
+            console.log(pizza)
+
+            let burger = await food("burger");
+            console.log(burger)
+
+            let icecream = await food("icecream");
+            console.log(icecream)
+        }
+
+        output()
+
+
+//data fetching method 1 
+
+
+code -
+ 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+
+        }
+        div{
+            width: 200px;
+            box-shadow: 0px 0px 10px rgb(182, 168, 168);
+            display: inline-block;
+            margin: 5px;
+            padding: 10px;
+        }
+        h2{
+            font-size: 20px;
+        }
+        img{
+            height:200px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+         let prom = fetch('https://dummyjson.com/products');
+         prom.then((response)=>{
+                (response.json()).then((data)=>{
+                    for (let i of data.products){
+                        let div = document.createElement('div');
+                        let title = document.createElement('h4');
+                        let price = document.createElement('h2');
+                        let image = document.createElement('img');
+                        let description= document.createElement('p');
+
+                        title.innerHTML="title : "+i.title
+                        price.innerHTML="price : "+i.price
+                        description.innerHTML="description : "+i.description
+                        image.src=i.thumbnail
+
+                        div.append(image)
+                        div.append(title)
+                        div.append(price)
+                        div.append(description)
+
+                        document.body.append(div)
+                        console.log(i)
+
+                    }
+                })
+         })
+    </script>
+</body>
+</html>
+
+
+
+//data fetching method 2
+
+code -
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        button{
+            padding: 15px;
+            width: 45%;
+            margin: 10px 5px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+
+        }
+
+        .box{
+
+            width: 300px;
+            box-shadow: 0px 0px 10px rgb(218, 212, 212);
+            padding: 10px;
+            margin: 5px;
+            flex-grow: 1;
+            text-align: center;
+            justify-content: center;
+            
+        }
+        img{
+            width: 100%;
+        }
+        .search{
+                width: 1000px;
+                border-radius: 10px;
+                margin: 10px;
+                padding: 10px;
+
+        }
+        input{
+            width: 40%;
+            padding: 13px;
+            border-radius: 10px 0px 0px 10px;
+            justify-content: center;
+            display: inline;
+            margin-left: 300px;
+        }
+        .btn{
+            width: 200px;
+            margin: 0px;
+            position: absolute;
+            border-radius: 0px 10px 10px 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="search">
+        <input type="text" name="" id="">
+        <button class="btn">Search</button>
+    </div>
+    <script>
+        //async function fetchdata ()
+        //{
+        //     let data = await fetch ('https://dummyjson.com/products');
+        //     let json_data = await data.json()
+        //     console.log(json_data.products)  
+        //}
+        //fetchdata()
+
+        async function Fetchdata()
+        {
+            try{
+                let data = await fetch('https://dummyjson.com/products')
+            let json_data = await data.json()
+
+            let filter_product = json_data.products.filter((item)=>item.price<100)
+            console.log(filter_product)
+            for (let i of json_data.products){
+                
+                let div = document.createElement('div')
+                let img = document.createElement('img')
+                let title = document.createElement('h3')
+                let price = document.createElement('h4')
+                let description = document.createElement('p')
+                let add_cart= document.createElement("button")
+                let buy_now= document.createElement("button")
+
+                title.innerHTML=i.title.slice(0,25);
+                buy_now.innerHTML="buy now"
+                add_cart.innerHTML= "add to cart"
+                price.innerHTML=i.price;
+                description.innerHTML=i.description.slice(0,18);
+                img.src=i.thumbnail;
+                div.className="box";
+                div.append(img,title,price,description,add_cart,buy_now);
+
+                document.body.append(div)
+            }
+            }
+    
+            catch{
+                console.log('error')
+            }
+            
+        }
+        Fetchdata()
+
+
+        //show only the products under price 100
+        let price = document.querySelectorAll('h4')
+        for (let i of price){
+            if (i.innerHTML>100){
+                i.style.display="none"
+                }
+                }
+    
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
